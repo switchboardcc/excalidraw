@@ -176,15 +176,17 @@ const ChipTip: React.FC<ChipTipProps> = ({ children, onClose, visible }) => {
         display: isVisible ? "flex" : "none",
         maxWidth: 244,
         fontSize: "0.75rem",
-        margin: "0 -8px",
-        padding: "8px 8px 16px",
-        borderBottom: "1px solid #dee2e6",
+        background: "var(--color-primary)",
+        margin: "-8px -8px 0",
+        padding: "12px 8px",
+        borderTopLeftRadius: "var(--border-radius-lg)",
+        borderTopRightRadius: "var(--border-radius-lg)",
       }}
     >
-      <div style={{ paddingRight: 16 }}>{children}</div>
-
+      <div style={{ fontSize: "1rem", paddingRight: 8 }}>⚡️</div>
+      <div style={{ color: "#fff", paddingRight: 16 }}>{children}</div>
       <button
-        style={{ background: "none", fontSize: "1rem" }}
+        style={{ background: "none", fontSize: "1rem", color: "#fff" }}
         onClick={handleOnClose}
       >
         &times;
