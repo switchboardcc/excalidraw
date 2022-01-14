@@ -695,6 +695,7 @@ const ExcalidrawWrapper = () => {
 
 const ExcalidrawApp = () => {
   const user = "1";
+
   return (
     //User 1 shows tour
     //User 2 shows inline surface
@@ -756,7 +757,7 @@ const ExcalidrawApp = () => {
                   content: (
                     <React.Fragment>
                       Welcome to Excalidraw the best way to digitally sketch
-                      ideas. Let's start
+                      ideas. Let's start sketching...
                     </React.Fragment>
                   ),
                   event: "hover",
@@ -781,7 +782,7 @@ const ExcalidrawApp = () => {
                   content: (
                     <React.Fragment>
                       After drawing the square let's add some text to it. Double
-                      click the square text
+                      click the square text.
                     </React.Fragment>
                   ),
                   event: "click",
@@ -796,7 +797,7 @@ const ExcalidrawApp = () => {
                   target: "#SB-export",
                   content: (
                     <React.Fragment>
-                      Great now let's share with a coworker
+                      Great now let's share this work of art with a coworker.
                     </React.Fragment>
                   ),
                   event: "hover",
