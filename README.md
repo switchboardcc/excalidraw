@@ -142,7 +142,7 @@ interface State {
 const useSbState: (modelReferenceId: string) => [State, (state: State) => void];
 
 ```
-####Usage
+#### Usage
 ```javascript
 import { useSbState } from "@switchboardcc/react-sdk-proto"
 
