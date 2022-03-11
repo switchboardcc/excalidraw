@@ -130,15 +130,8 @@ const ExportButtonWrapper = (props: any) => {
           {props.children}
         </div>
       </PopoverTrigger>
-      <PopoverContent p={2} pr={6}>
+      <PopoverContent p={2} boxShadow="lg">
         <PopoverArrow />
-        <PopoverCloseButton
-          onClick={() => {
-            if (!state.finished) {
-              setState({ ...state, finished: true });
-            }
-          }}
-        />
         <PopoverBody>
           Looking good! Let’s export this drawing so you can share it with
           others. <strong>Click the Save as image button to save this as a PNG, SVG, or
