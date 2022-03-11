@@ -38,7 +38,7 @@ We'll also have a diverging path after drawing a rectangle for users who are par
 
 Models are a Switchboard concept and is the building block for defining the pieces of state that you need as part of your growth experience. In this case, we’re building out a tour so one way to think about it is to add a model for each step in the tour.
 
-[![Switchboard journey builder](https://user-images.githubusercontent.com/604167/157758915-fb38445f-8696-4916-a397-e99bae1baf38.png)](https://www.figma.com/proto/AKdbZcyjjkuhPiz0LLN0fG/Prototype-Storyboard?page-id=42%3A206&node-id=42%3A207&viewport=241%2C48%2C0.03&scaling=contain&starting-point-node-id=42%3A207)
+[![image](https://user-images.githubusercontent.com/604167/157954142-f98a4161-7312-4014-aae5-6d86aa74d0ef.png)](https://www.figma.com/proto/AKdbZcyjjkuhPiz0LLN0fG/Prototype-Storyboard?page-id=42%3A206&node-id=42%3A207&viewport=241%2C48%2C0.03&scaling=contain&starting-point-node-id=42%3A207)
 
 Before we start implementing our tour UI, we'll need to model what state we want Switchboard to keep track for us in the Switchboard journey builder. Check out [this prototype](https://www.figma.com/proto/AKdbZcyjjkuhPiz0LLN0fG/Prototype-Storyboard?page-id=42%3A206&node-id=42%3A207&viewport=241%2C48%2C0.03&scaling=contain&starting-point-node-id=42%3A207) to get a sense of what that looks like.
 
@@ -67,6 +67,8 @@ Import `SbProvider` and reference it at the root of the app. This provides acces
 
 ### Step 1: Welcome to Excalidraw
 
+![image](https://user-images.githubusercontent.com/604167/157955075-79e4b2da-88d9-4a33-9974-71e1d0881104.png)
+
 <details>
   <summary>Show code</summary>
 
@@ -86,6 +88,8 @@ https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937
 Add this `WelcomeModal` to the root of our app.
 
 ### Step 2: Show how to use the rectangle tool
+
+![image](https://user-images.githubusercontent.com/604167/157955291-06a9add1-d89e-4972-9950-6901769596e9.png)
 
 <details>
   <summary>Show code</summary>
@@ -107,6 +111,8 @@ Add a handler to progress to the next tour step.
 
 ### Step 3: Show how to draw on the canvas
 
+![image](https://user-images.githubusercontent.com/604167/157955549-260c4c00-249e-40a2-92c6-65dba5d02247.png)
+
 <details>
   <summary>Show code</summary>
 
@@ -126,6 +132,8 @@ https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937
 Add this `DrawASquare` to the root of our app.
 
 ### Step 4: Show how to export a drawing
+
+![image](https://user-images.githubusercontent.com/604167/157955841-a48e9c85-2967-4e4d-a31c-fcad5589a465.png)
 
 <details>
   <summary>Show code</summary>
@@ -147,6 +155,8 @@ Add this `ExportButtonWrapper` to the export button.
 
 ### Step 5: Congratulate the user on getting onboarded
 
+![image](https://user-images.githubusercontent.com/604167/157956502-cbac0965-abce-4f9f-92e2-4a2cc410d197.png)
+
 <details>
   <summary>Show code</summary>
 
@@ -157,6 +167,8 @@ https://github.com/switchboardcc/excalidraw/blob/36909fa76ade5bfd1003028fe1fb572
 Add an `Alert` to the export modal for our congratulate step. This alert is controlled by the state of the `congratulations-db59ae1` model.
 
 ### (Branch) Step 4: Show how to share a drawing
+
+![image](https://user-images.githubusercontent.com/604167/157956770-e96a07ab-0f21-4016-9378-a6f4e8d91300.png)
 
 <details>
   <summary>Show code</summary>
@@ -177,6 +189,8 @@ https://github.com/switchboardcc/excalidraw/blob/210909b73f2954004fb0c47f04d779f
 Add this `CollabButtonWrapper` to the share button.
 
 ### (Branch) Step 5: Congratulate the user on getting onboarded
+
+![image](https://user-images.githubusercontent.com/604167/157957091-8e178321-6897-483b-9c29-bab334782ce9.png)
 
 <details>
   <summary>Show code</summary>
