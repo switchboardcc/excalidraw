@@ -44,7 +44,55 @@ Before we start implementing our tour UI, we'll need to model what state we want
 
 ## API
 
-Add some content here to describe the API
+The Switchboard API offers access to limited access to `Users` and `States` in this prototype.
+
+### Users
+
+A user represents an end-user of a product that has Switchboard integrated into it.
+
+#### Attributes
+id `string`<br>
+Unique identifier for the user<br>
+
+firstname `string`<br>
+The first name of the user<br>
+
+lastname `string`<br>
+The first name of the user<br>
+
+email `string`<br>
+The email of the user<br>
+
+
+
+#### Endpoints
+```
+GET /api/users
+GET /api/users/{user-id} // the DB has been seeded with users with id 1 through 100
+```
+
+### States
+
+The state API allows you to access the state of some model for a given user.
+
+#### Attributes
+started `boolean`<br>
+RW attribute indicating whether the user has began interacting with the experience<br>
+
+finished `boolean`<br>
+RW attribute indicating whether the user has finished interacting with the experience<br>
+
+active `boolean`<br>
+RO attribute indicating whether this model is active for this user<br>
+
+#### Endpoints
+```
+GET /api/users/{user-id}/states
+GET /api/users/{user-id}/states/{state-id}
+PUT /api/users/{user-id}/states/{state-id} //Only RW State attributes in body
+POST /api/users/{user-id}/states/reset // Convience enpoint for resetting a users State (given the lack of a UI)
+```
+
 
 ## SDK
 
