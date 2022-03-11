@@ -713,12 +713,9 @@ const WelcomeModal = () => {
         <ModalContent border="1px" borderColor="gray.200">
           <ModalBody p={7}>
             Welcome to Excalidraw the best way to digitally sketch ideas. Let's
-            start sketching...
+            start sketching!
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3}>
-              Skip
-            </Button>
             <Button
               colorScheme="purple"
               onClick={() => setState({ ...state, finished: true })}
@@ -762,7 +759,7 @@ const DrawASquare = () => {
       >
         <ModalContent border="1px" borderColor="gray.200">
           <ModalBody p={7}>
-          Great! Now, <strong>draw a rectangle anywhere on canvas.</strong>
+            Great! Now, <strong>draw a rectangle anywhere on the canvas.</strong>
           </ModalBody>
         </ModalContent>
       </Modal>
