@@ -67,7 +67,7 @@ Import `SbProvider` and reference it at the root of the app. This provides acces
 
 ### Step 1: Welcome to Excalidraw
 
-![image](https://user-images.githubusercontent.com/604167/157955075-79e4b2da-88d9-4a33-9974-71e1d0881104.png)
+![image](https://user-images.githubusercontent.com/604167/157987239-abd26d82-f4e8-4280-bd0b-78f03cb168f9.png)
 
 <details>
   <summary>Show code</summary>
@@ -89,7 +89,7 @@ Add this `WelcomeModal` to the root of our app.
 
 ### Step 2: Show how to use the rectangle tool
 
-![image](https://user-images.githubusercontent.com/604167/157955291-06a9add1-d89e-4972-9950-6901769596e9.png)
+![image](https://user-images.githubusercontent.com/604167/157987319-fee253d3-c84d-4fb5-a4d6-0584b6c97c30.png)
 
 <details>
   <summary>Show code</summary>
@@ -111,7 +111,7 @@ Add a handler to progress to the next tour step.
 
 ### Step 3: Show how to draw on the canvas
 
-![image](https://user-images.githubusercontent.com/604167/157955549-260c4c00-249e-40a2-92c6-65dba5d02247.png)
+![image](https://user-images.githubusercontent.com/604167/157987367-b81c7b8d-3d20-400b-b1ed-a1c8c74a9bf5.png)
 
 <details>
   <summary>Show code</summary>
@@ -133,7 +133,7 @@ Add this `DrawASquare` to the root of our app.
 
 ### Step 4: Show how to export a drawing
 
-![image](https://user-images.githubusercontent.com/604167/157955841-a48e9c85-2967-4e4d-a31c-fcad5589a465.png)
+![image](https://user-images.githubusercontent.com/604167/157987466-5700c92b-c432-47b8-9f80-0fc490d1505b.png)
 
 <details>
   <summary>Show code</summary>
@@ -168,7 +168,7 @@ Add an `Alert` to the export modal for our congratulate step. This alert is cont
 
 ### (Branch) Step 4: Show how to share a drawing
 
-![image](https://user-images.githubusercontent.com/604167/157956770-e96a07ab-0f21-4016-9378-a6f4e8d91300.png)
+![image](https://user-images.githubusercontent.com/604167/157987548-531a90c9-3d65-49e9-a7dc-0f05c79f98ce.png)
 
 <details>
   <summary>Show code</summary>
