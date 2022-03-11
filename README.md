@@ -87,16 +87,83 @@ RO attribute indicating whether this model is active for this user<br>
 
 #### Endpoints
 ```
-GET /api/users/{user-id}/states
-GET /api/users/{user-id}/states/{state-id}
-PUT /api/users/{user-id}/states/{state-id} //Only RW State attributes in body
-POST /api/users/{user-id}/states/reset // Convience enpoint for resetting a users State (given the lack of a UI)
+GET   /api/users/{user-id}/states
+GET   /api/users/{user-id}/states/{state-id}
+PUT   /api/users/{user-id}/states/{state-id} // State attributes in body
+POST  /api/users/{user-id}/states/reset      // Convience enpoint for resetting a users State
 ```
 
 
 ## SDK
 
-Add some content here to describe the SDK
+## Installation
+
+Via Yarn
+```bash
+yarn add @switchboardcc/react-sdk-proto
+```
+Via npm
+```bash
+npm install @switchboardcc/react-sdk-proto
+```
+
+## Usage
+
+### Wire the Provider and Identifying Users
+
+```javascript
+import { SbProvider } from "@switchboardcc/react-sdk-proto"
+import YourApp from './YourApp';
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(  
+   <SbProvider userId={userId}>    
+     <YourApp />  
+   </SbProvider>,  
+   rootElement
+);
+```
+
+### Accessing states
+
+Having wired up the `<SbProvider />` you can now access 
+Switchboard state from anywhere in `<YourApp />` using 
+our provided hook `useSbState($model-reference-id$)`
+which can be described via the following types
+
+#### Type Definition
+```
+interface State {
+  readonly active: boolean;
+  started: boolean;
+  finished: boolean;
+}
+
+const useSbState: (modelReferenceId: string) => [State, (state: State) => void];
+
+```
+####Usage
+```javascript
+import { useSbState } from "@switchboardcc/react-sdk-proto"
+
+const WelcomeModal = () => {
+  const [state, setState] = useSbState("welcome-cf7230a");
+
+  if (!state) {
+    return null;
+  }
+
+  return (
+    <Modal isOpen={state.active && !state.finished}>
+      <ModalContent border="1px" borderColor="gray.200">
+        <ModalBody p={7}>
+          I'm a modal whose existence/visibility is controlled by Switchboard
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
+```
 
 ## UI integration
 
