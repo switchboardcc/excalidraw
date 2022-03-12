@@ -202,8 +202,8 @@ const ToolButtonWrapper = (props: any) => {
         <PopoverContent p={2} boxShadow="lg">
           <PopoverArrow />
           <PopoverBody>
-            Let's start by creating your first shape. <strong>Click the square and click
-            and drag to draw.</strong>
+            Let's start by creating your first shape.
+            First, <strong>click on the Rectangle tool.</strong>
           </PopoverBody>
         </PopoverContent>
       </Popover>
@@ -232,6 +232,11 @@ export const ShapesSwitcher = ({
         const shortcut = letter
           ? `${capitalizeString(letter)} ${t("helpDialog.or")} ${index + 1}`
           : `${index + 1}`;
+        const setFinished = () => {
+          if (value === "rectangle" && !state.finished) {
+            setState({ ...state, finished: true });
+          }
+        };
         return (
           <ToolButtonWrapper value={value}>
             <ToolButton
@@ -248,9 +253,7 @@ export const ShapesSwitcher = ({
               aria-keyshortcuts={shortcut}
               data-testid={value}
               onChange={({ pointerType }) => {
-                if (!state.finished) {
-                  setState({ ...state, finished: true });
-                }
+                setFinished();
                 setAppState({
                   elementType: value,
                   multiElement: null,
@@ -261,6 +264,7 @@ export const ShapesSwitcher = ({
                   onImageAction({ pointerType });
                 }
               }}
+              onClick={setFinished}
             />
           </ToolButtonWrapper>
         );
