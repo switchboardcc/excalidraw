@@ -6,8 +6,8 @@ This repository showcases what creating a growth experience with Switchboard loo
 
 ## Requirements
 
-- [Node.js](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/getting-started/install) (v1 or v2.4.2+)
+- [Node.js](https://nodejs.org/) (v14 or v16)
+- [Yarn](https://yarnpkg.com/getting-started/install) or [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 - [Git](https://git-scm.com/downloads)
 
 ## Getting started
@@ -15,8 +15,8 @@ This repository showcases what creating a growth experience with Switchboard loo
 Follow these steps to get running with a local Excalidraw environment.
 
 1. Clone the repo with `git clone git@github.com:switchboardcc/excalidraw.git`
-2. Install the dependencies with `yarn install`
-3. Start the app with `yarn start`
+2. Install the dependencies with `yarn install` or `npm install`
+3. Start the app with `yarn start` or `npm run start`
 4. Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## Walkthrough
@@ -51,88 +51,78 @@ The Switchboard API offers access to limited access to `Users` and `States` in t
 A user represents an end-user of a product that has Switchboard integrated into it.
 
 #### Attributes
-id `string`<br>
-Unique identifier for the user<br>
 
-firstname `string`<br>
-The first name of the user<br>
-
-lastname `string`<br>
-The first name of the user<br>
-
-email `string`<br>
-The email of the user<br>
-
-
+| Name      | Type     | Description                    |
+| --------- | -------- | ------------------------------ |
+| id        | `string` | Unique identifier for the user |
+| firstname | `string` | The first name of the user     |
+| lastname  | `string` | The first name of the user     |
+| email     | `string` | The email of the user          |
 
 #### Endpoints
-```
-GET /api/users
-GET /api/users/{user-id} // the DB has been seeded with users with id 1 through 100
-```
+
+| Method | URI | Notes |
+| --- | --- | --- |
+| `GET` | [/api/users](https://sbdemoapi.vercel.app/api/users) |  |
+| `GET` | [/api/users/{user-id}](https://sbdemoapi.vercel.app/api/users/1) | The DB has been seeded with users with id 1 through 100 |
 
 ### States
 
 The state API allows you to access the state of some model for a given user.
 
 #### Attributes
-started `boolean`<br>
-RW attribute indicating whether the user has began interacting with the experience<br>
 
-finished `boolean`<br>
-RW attribute indicating whether the user has finished interacting with the experience<br>
-
-active `boolean`<br>
-RO attribute indicating whether this model is active for this user<br>
+| Name | Type | Description |
+| --- | --- | --- |
+| started | `boolean` | RW attribute indicating whether the user has began interacting with the experience |
+| finished | `boolean` | RW attribute indicating whether the user has finished interacting with the experience |
+| active | `boolean` | RO attribute indicating whether this model is active for this user |
 
 #### Endpoints
-```
-GET   /api/users/{user-id}/states
-GET   /api/users/{user-id}/states/{state-id}
-PUT   /api/users/{user-id}/states/{state-id} // State attributes in body
-POST  /api/users/{user-id}/states/reset      // Convience enpoint for resetting a users State
-```
 
+| Method | URI | Notes |
+| --- | --- | --- |
+| `GET` | [/api/users/{user-id}/states](https://sbdemoapi.vercel.app/api/users/1/states) |  |
+| `GET` | [/api/users/{user-id}/states/{state-id}](https://sbdemoapi.vercel.app/api/users/1/states/welcome-cf7230a) |  |
+| `PUT` | [/api/users/{user-id}/states/{state-id}](https://sbdemoapi.vercel.app/api/users/1/states/welcome-cf7230a) | State attributes in body |
+| `POST` | [/api/users/{user-id}/states/reset](https://sbdemoapi.vercel.app/api/users/1/states/reset) | Convience enpoint for resetting a users State |
 
 ## SDK
 
-## Installation
+### Installation
 
-Via Yarn
 ```bash
+# Yarn
 yarn add @switchboardcc/react-sdk-proto
-```
-Via npm
-```bash
+
+# npm
 npm install @switchboardcc/react-sdk-proto
 ```
 
-## Usage
+### Usage
 
-### Wire the Provider and Identifying Users
+#### Wire the provider and identifying users
 
-```javascript
-import { SbProvider } from "@switchboardcc/react-sdk-proto"
-import YourApp from './YourApp';
+```js
+import { SbProvider } from "@switchboardcc/react-sdk-proto";
+import YourApp from "./YourApp";
 
-const rootElement = document.getElementById('root');
-ReactDOM.render(  
-   <SbProvider userId={userId}>    
-     <YourApp />  
-   </SbProvider>,  
-   rootElement
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  <SbProvider userId={userId}>
+    <YourApp />
+  </SbProvider>,
+  rootElement,
 );
 ```
 
-### Accessing states
+#### Accessing states
 
-Having wired up the `<SbProvider />` you can now access 
-Switchboard state from anywhere in `<YourApp />` using 
-our provided hook `useSbState($model-reference-id$)`
-which can be described via the following types
+Having wired up the `<SbProvider />` you can now access Switchboard state from anywhere in `<YourApp />` using our provided hook `useSbState($model-reference-id$)` which can be described via the following types
 
-#### Type Definition
-```
+#### Type definition
+
+```ts
 interface State {
   readonly active: boolean;
   started: boolean;
@@ -140,11 +130,12 @@ interface State {
 }
 
 const useSbState: (modelReferenceId: string) => [State, (state: State) => void];
-
 ```
+
 #### Usage
-```javascript
-import { useSbState } from "@switchboardcc/react-sdk-proto"
+
+```js
+import { useSbState } from "@switchboardcc/react-sdk-proto";
 
 const WelcomeModal = () => {
   const [state, setState] = useSbState("welcome-cf7230a");
@@ -155,8 +146,8 @@ const WelcomeModal = () => {
 
   return (
     <Modal isOpen={state.active && !state.finished}>
-      <ModalContent border="1px" borderColor="gray.200">
-        <ModalBody p={7}>
+      <ModalContent>
+        <ModalBody>
           I'm a modal whose existence/visibility is controlled by Switchboard
         </ModalBody>
       </ModalContent>
