@@ -204,7 +204,7 @@ Add this `WelcomeModal` to the root of our app.
 
 ### Step 2: Show how to use the rectangle tool
 
-![image](https://user-images.githubusercontent.com/604167/157987319-fee253d3-c84d-4fb5-a4d6-0584b6c97c30.png)
+![image](https://user-images.githubusercontent.com/604167/157995600-766e915f-6736-4cd8-b5b5-76897c844a45.png)
 
 <details>
   <summary>Show code</summary>
@@ -226,7 +226,7 @@ Add a handler to progress to the next tour step.
 
 ### Step 3: Show how to draw on the canvas
 
-![image](https://user-images.githubusercontent.com/604167/157987367-b81c7b8d-3d20-400b-b1ed-a1c8c74a9bf5.png)
+![image](https://user-images.githubusercontent.com/604167/157995656-2636485d-aaf9-4daa-a41b-81f32592e891.png)
 
 <details>
   <summary>Show code</summary>
