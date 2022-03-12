@@ -48,6 +48,7 @@ type ToolButtonProps =
       type: "radio";
       checked: boolean;
       onChange?(data: { pointerType: PointerType | null }): void;
+      onClick?(event: React.MouseEvent): void;
     });
 
 export const ToolButton = React.forwardRef((props: ToolButtonProps, ref) => {
@@ -169,6 +170,7 @@ export const ToolButton = React.forwardRef((props: ToolButtonProps, ref) => {
         onChange={() => {
           props.onChange?.({ pointerType: lastPointerTypeRef.current });
         }}
+        onClick={onClick}
         checked={props.checked}
         ref={innerRef}
       />

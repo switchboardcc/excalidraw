@@ -759,7 +759,7 @@ const DrawASquare = () => {
       >
         <ModalContent border="1px" borderColor="gray.200">
           <ModalBody p={7}>
-            Great! Now, <strong>draw a rectangle anywhere on the canvas.</strong>
+            Great! Now, <strong>click and drag to draw a rectangle anywhere on the canvas.</strong>
           </ModalBody>
         </ModalContent>
       </Modal>
