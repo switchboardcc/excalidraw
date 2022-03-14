@@ -150,6 +150,11 @@ const WelcomeModal = () => {
         <ModalBody>
           I'm a modal whose existence/visibility is controlled by Switchboard
         </ModalBody>
+          <ModalFooter>
+            <Button onClick={() => setState({ ...state, finished: true })}>
+              Continue
+            </Button>
+          </ModalFooter>
       </ModalContent>
     </Modal>
   );
