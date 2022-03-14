@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository showcases what creating a growth experience with Switchboard looks like. For this demo, we'll be building on top of [Excalidraw](https://github.com/excalidraw/excalidraw), an open source tool for drawing and diagramming. We've also pulled in some basic UI components from [Chakra UI](https://chakra-ui.com/), a React component library.
+This repository showcases what creating a growth experience with Switchboard looks like. For this demo, we'll be building an onboarding experience on top of [Excalidraw](https://github.com/excalidraw/excalidraw), an open source tool for drawing and diagramming. We've also pulled in some basic UI components from [Chakra UI](https://chakra-ui.com/), an open source React component library.
 
 ## Requirements
 
@@ -89,6 +89,8 @@ The state API allows you to access the state of some model for a given user.
 
 ## SDK
 
+The Switchboard React SDK offers conventient hooks to work with the Switchboard API.
+
 ### Installation
 
 ```bash
@@ -150,11 +152,11 @@ const WelcomeModal = () => {
         <ModalBody>
           I'm a modal whose existence/visibility is controlled by Switchboard
         </ModalBody>
-          <ModalFooter>
-            <Button onClick={() => setState({ ...state, finished: true })}>
-              Continue
-            </Button>
-          </ModalFooter>
+        <ModalFooter>
+          <Button onClick={() => setState({ ...state, finished: true })}>
+            Continue
+          </Button>
+        </ModalFooter>
       </ModalContent>
     </Modal>
   );
@@ -168,9 +170,9 @@ const WelcomeModal = () => {
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937c7c2cfc62/src/excalidraw-app/index.tsx#L90
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/excalidraw-app/index.tsx#L84
 
-https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937c7c2cfc62/src/excalidraw-app/index.tsx#L783-L791
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/excalidraw-app/index.tsx#L775-L783
 
 </details>
 
@@ -183,7 +185,7 @@ Import `SbProvider` and reference it at the root of the app. This provides acces
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937c7c2cfc62/src/excalidraw-app/index.tsx#L709-L738
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/excalidraw-app/index.tsx#L703-L730
 
 </details>
 
@@ -192,7 +194,7 @@ Create a `Modal` for our welcome step. The visibility of this modal is controlle
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937c7c2cfc62/src/excalidraw-app/index.tsx#L784-L790
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/excalidraw-app/index.tsx#L776-L782
 
 </details>
 
@@ -205,7 +207,7 @@ Add this `WelcomeModal` to the root of our app.
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937c7c2cfc62/src/components/Actions.tsx#L184-L207
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/components/Actions.tsx#L184-L213
 
 </details>
 
@@ -214,7 +216,9 @@ Add a `Popover` for our rectangle tool step. The visibility of this popover is c
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937c7c2cfc62/src/components/Actions.tsx#L244-L247
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/components/Actions.tsx#L235-L239
+
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/components/Actions.tsx#L255-L267
 
 </details>
 
@@ -227,7 +231,7 @@ Add a handler to progress to the next tour step.
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937c7c2cfc62/src/excalidraw-app/index.tsx#L740-L776
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/excalidraw-app/index.tsx#L732-L768
 
 </details>
 
@@ -236,7 +240,7 @@ Create a `Modal` for our draw step. This modal is controlled by the state of the
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/14296fb26db7eee6bcbcc9df273f937c7c2cfc62/src/excalidraw-app/index.tsx#L784-L790
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/excalidraw-app/index.tsx#L776-L782
 
 </details>
 
@@ -249,7 +253,7 @@ Add this `DrawASquare` to the root of our app.
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/36909fa76ade5bfd1003028fe1fb5728b46b173e/src/components/JSONExportDialog.tsx#L115-L142
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/components/JSONExportDialog.tsx#L116-L143
 
 </details>
 
@@ -258,7 +262,7 @@ Create a `Popover` for our export step. This popover is controlled by the state 
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/36909fa76ade5bfd1003028fe1fb5728b46b173e/src/components/JSONExportDialog.tsx#L171-L200
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/components/JSONExportDialog.tsx#L172-L201
 
 </details>
 
@@ -271,7 +275,7 @@ Add this `ExportButtonWrapper` to the export button.
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/36909fa76ade5bfd1003028fe1fb5728b46b173e/src/components/JSONExportDialog.tsx#L55-L67
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/components/JSONExportDialog.tsx#L55-L68
 
 </details>
 
@@ -284,7 +288,7 @@ Add an `Alert` to the export modal for our congratulate step. This alert is cont
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/210909b73f2954004fb0c47f04d779f20911e9a6/src/components/CollabButton.tsx#L19-L45
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/components/CollabButton.tsx#L19-L45
 
 </details>
 
@@ -293,7 +297,7 @@ For this branching path, create a `Popover` for our share step. This popover is 
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/210909b73f2954004fb0c47f04d779f20911e9a6/src/components/CollabButton.tsx#L58-L77
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/components/CollabButton.tsx#L58-L77
 
 </details>
 
@@ -306,7 +310,7 @@ Add this `CollabButtonWrapper` to the share button.
 <details>
   <summary>Show code</summary>
 
-https://github.com/switchboardcc/excalidraw/blob/210909b73f2954004fb0c47f04d779f20911e9a6/src/excalidraw-app/collab/RoomDialog.tsx#L109-L121
+https://github.com/switchboardcc/excalidraw/blob/504e83abf34be3090c4142026084d8b610a7dff2/src/excalidraw-app/collab/RoomDialog.tsx#L109-L125
 
 </details>
 
