@@ -2823,10 +2823,10 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
-"@switchboardcc/react-sdk-proto@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@switchboardcc/react-sdk-proto/-/react-sdk-proto-0.0.1.tgz#3f273ad7579dab28816e26000c9fd31bfd7f5aa8"
-  integrity sha512-SAT/+PTDPoUQITgEZ2KAL/DyM8JYQHbV6H++B0Kr95qsz7EWkdHKkyJ+hPfKcwHFB0pJ5cEVsfq/kr6ghftAqQ==
+"@switchboardcc/react-sdk-proto@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@switchboardcc/react-sdk-proto/-/react-sdk-proto-0.0.4.tgz#8cb62419c3839fbc76f43d2f119753e73788395b"
+  integrity sha512-I0nI6n4RFUhiTdMqNHKZB2S5Dw2KKfXYxb1LG3H/7hkMxTkANdovGQaYKbGYEmo5cyD9afxF205S0c+btPD1xA==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"

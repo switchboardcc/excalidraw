@@ -709,7 +709,11 @@ const WelcomeModal = () => {
 
   return (
     <>
-      <Modal isCentered isOpen={!state.finished} onClose={() => {}}>
+      <Modal
+        isCentered
+        isOpen={state.active && !state.finished}
+        onClose={() => {}}
+      >
         <ModalContent border="1px" borderColor="gray.200">
           <ModalBody p={7}>
             Welcome to Excalidraw the best way to digitally sketch ideas. Let's
@@ -759,7 +763,10 @@ const DrawASquare = () => {
       >
         <ModalContent border="1px" borderColor="gray.200">
           <ModalBody p={7}>
-            Great! Now, <strong>click and drag to draw a rectangle anywhere on the canvas.</strong>
+            Great! Now,{" "}
+            <strong>
+              click and drag to draw a rectangle anywhere on the canvas.
+            </strong>
           </ModalBody>
         </ModalContent>
       </Modal>
