@@ -1760,6 +1760,11 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
+"@dopt/react@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@dopt/react/-/react-0.0.3.tgz#01af1131ffe11022d8f9ef2f44fbcaea8aaa8832"
+  integrity sha512-3vYRoLVEkhY/t5gDnTiF2juSJgNS2aNRf3F+vaA08nivWHi2Hvy2ZBmeOylkphRMdA1QIpjb91J5KWFRSF6zOg==
+
 "@emotion/babel-plugin@^11.7.1":
   version "11.7.2"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.7.2.tgz#fec75f38a6ab5b304b0601c74e2a5e77c95e5fa0"
@@ -2822,11 +2827,6 @@
     "@svgr/plugin-jsx" "^5.5.0"
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
-
-"@switchboardcc/react-sdk-proto@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@switchboardcc/react-sdk-proto/-/react-sdk-proto-0.0.4.tgz#8cb62419c3839fbc76f43d2f119753e73788395b"
-  integrity sha512-I0nI6n4RFUhiTdMqNHKZB2S5Dw2KKfXYxb1LG3H/7hkMxTkANdovGQaYKbGYEmo5cyD9afxF205S0c+btPD1xA==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"

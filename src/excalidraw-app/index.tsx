@@ -80,8 +80,7 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-
-import { SbProvider, useSbState } from "@switchboardcc/react-sdk-proto";
+import { DoptProvider, useDopt } from "@dopt/react";
 
 import queryString from "query-string";
 
@@ -701,29 +700,22 @@ const ExcalidrawWrapper = () => {
 };
 
 const WelcomeModal = () => {
-  const [state, setState] = useSbState("welcome-cf7230a");
+  const [{ active }, { complete }] = useDopt("LI_WBly_VlZxDJIt6MznV");
 
-  if (!state) {
+  if (!active) {
     return null;
   }
 
   return (
     <>
-      <Modal
-        isCentered
-        isOpen={state.active && !state.finished}
-        onClose={() => {}}
-      >
+      <Modal isCentered isOpen={active} onClose={() => {}}>
         <ModalContent border="1px" borderColor="gray.200">
           <ModalBody p={7}>
             Welcome to Excalidraw the best way to digitally sketch ideas. Let's
             start sketching!
           </ModalBody>
           <ModalFooter>
-            <Button
-              colorScheme="purple"
-              onClick={() => setState({ ...state, finished: true })}
-            >
+            <Button colorScheme="purple" onClick={() => complete()}>
               Continue
             </Button>
           </ModalFooter>
@@ -734,15 +726,15 @@ const WelcomeModal = () => {
 };
 
 const DrawASquare = () => {
-  const [state, setState] = useSbState("draw-afcee69");
+  const [{ active }, { complete }] = useDopt("Vp7dN1DTgRA6Z6p6E0reB");
 
   const handleKeyUp = useCallback(
     (event) => {
-      if (state && state.active) {
-        setState({ ...state, finished: true });
+      if (active) {
+        complete();
       }
     },
-    [state, setState],
+    [active, complete],
   );
 
   useEffect(() => {
@@ -750,17 +742,13 @@ const DrawASquare = () => {
     return () => document.removeEventListener("mouseup", handleKeyUp);
   }, [handleKeyUp]);
 
-  if (!state) {
+  if (!active) {
     return null;
   }
 
   return (
     <>
-      <Modal
-        isCentered
-        isOpen={state.active && !state.finished}
-        onClose={() => {}}
-      >
+      <Modal isCentered isOpen={active} onClose={() => {}}>
         <ModalContent border="1px" borderColor="gray.200">
           <ModalBody p={7}>
             Great! Now,{" "}
@@ -779,7 +767,12 @@ const ExcalidrawApp = () => {
 
   return (
     <ChakraProvider>
-      <SbProvider userId={userId}>
+      <DoptProvider
+        userId={"carlos1"}
+        apiKey={
+          "daeffe24d3fcf746d4176198dbf4fa9c3828dc086205412a6905e3983dbb152d_56"
+        }
+      >
         <TopErrorBoundary>
           <WelcomeModal />
           <DrawASquare />
@@ -787,7 +780,7 @@ const ExcalidrawApp = () => {
             <ExcalidrawWrapper />
           </CollabContextConsumer>
         </TopErrorBoundary>
-      </SbProvider>
+      </DoptProvider>
     </ChakraProvider>
   );
 };
