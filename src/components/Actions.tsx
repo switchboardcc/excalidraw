@@ -28,9 +28,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-
-import { useSbState } from "@switchboardcc/react-sdk-proto";
-
+import { useDopt } from "@dopt/react";
 export const SelectedShapeActions = ({
   appState,
   elements,
@@ -182,13 +180,13 @@ export const SelectedShapeActions = ({
 };
 
 const ToolButtonWrapper = (props: any) => {
-  const [state, setState] = useSbState("rectangle-tool-a40ea81");
+  const [{ active }] = useDopt("oc-SSKRt3tzab6iFARm0Y");
   if (props.value === "rectangle") {
-    if (!state || !state.active || state.finished) {
+    if (!active) {
       return props.children;
     }
     return (
-      <Popover isOpen={!state.finished}>
+      <Popover isOpen={active}>
         <PopoverTrigger>
           <div
             style={{
@@ -202,8 +200,8 @@ const ToolButtonWrapper = (props: any) => {
         <PopoverContent p={2} boxShadow="lg">
           <PopoverArrow />
           <PopoverBody>
-            Let's start by creating your first shape.
-            First, <strong>click on the Rectangle tool.</strong>
+            Let's start by creating your first shape. First,{" "}
+            <strong>click on the Rectangle tool.</strong>
           </PopoverBody>
         </PopoverContent>
       </Popover>
@@ -223,7 +221,7 @@ export const ShapesSwitcher = ({
   setAppState: React.Component<any, AppState>["setState"];
   onImageAction: (data: { pointerType: PointerType | null }) => void;
 }) => {
-  const [state, setState] = useSbState("rectangle-tool-a40ea81");
+  const [{ active }, { complete }] = useDopt("oc-SSKRt3tzab6iFARm0Y");
   return (
     <>
       {SHAPES.map(({ value, icon, key }, index) => {
@@ -233,8 +231,8 @@ export const ShapesSwitcher = ({
           ? `${capitalizeString(letter)} ${t("helpDialog.or")} ${index + 1}`
           : `${index + 1}`;
         const setFinished = () => {
-          if (value === "rectangle" && !state.finished) {
-            setState({ ...state, finished: true });
+          if (value === "rectangle" && active) {
+            complete();
           }
         };
         return (

@@ -3,7 +3,6 @@ import { ToolButton } from "./ToolButton";
 import { t } from "../i18n";
 import { useIsMobile } from "../components/App";
 import { users } from "./icons";
-import { useSbState } from "@switchboardcc/react-sdk-proto";
 
 import "./CollabButton.scss";
 
@@ -17,12 +16,12 @@ import {
 } from "@chakra-ui/react";
 
 const CollabButtonWrapper = (props: any) => {
-  const [state, setState] = useSbState("share-78e5c60");
-  if (!state || !state.active || state.finished) {
+  const [{ active }, { complete }] = useDopt("yw2K45R2IyW_PHvxNRruT");
+  if (!active) {
     return props.children;
   }
   return (
-    <Popover isOpen={!state.finished}>
+    <Popover isOpen={active}>
       <PopoverTrigger>
         <div
           style={{
@@ -53,7 +52,7 @@ const CollabButton = ({
   collaboratorCount: number;
   onClick: () => void;
 }) => {
-  const [state, setState] = useSbState("share-78e5c60");
+  const [{ active }, { complete }] = useDopt("yw2K45R2IyW_PHvxNRruT");
   return (
     <CollabButtonWrapper>
       <ToolButton
@@ -61,7 +60,7 @@ const CollabButton = ({
           "is-collaborating": isCollaborating,
         })}
         onClick={() => {
-          setState({ ...state, finished: true });
+          complete();
           onClick();
         }}
         icon={users}

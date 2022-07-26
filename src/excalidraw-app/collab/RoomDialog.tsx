@@ -16,7 +16,6 @@ import Stack from "../../components/Stack";
 import { AppState } from "../../types";
 
 import { Alert, AlertIcon } from "@chakra-ui/react";
-import { useSbState } from "@switchboardcc/react-sdk-proto";
 
 const getShareIcon = () => {
   const navigator = window.navigator as any;
@@ -52,7 +51,7 @@ const RoomDialog = ({
   theme: AppState["theme"];
 }) => {
   const roomLinkInput = useRef<HTMLInputElement>(null);
-  const [state, setState] = useSbState("congratulations-df49ae1");
+  const [{ active }, { complete }] = useDopt("72IsJgtFODxZyf8lWTjFL");
 
   const copyRoomLink = async () => {
     try {
@@ -119,7 +118,11 @@ const RoomDialog = ({
                 mb={4}
               >
                 <div>
-                  🎉 You did it! You’re an Excalidraw pro now! <strong>You can share this link with your coworkers and they’ll be able to draw with you.</strong>
+                  🎉 You did it! You’re an Excalidraw pro now!{" "}
+                  <strong>
+                    You can share this link with your coworkers and they’ll be
+                    able to draw with you.
+                  </strong>
                 </div>
               </Alert>
             )}
@@ -193,7 +196,7 @@ const RoomDialog = ({
     <Dialog
       small
       onCloseRequest={() => {
-        setState({ ...state, finished: true });
+        complete();
         handleClose();
       }}
       title={t("labels.liveCollaboration")}

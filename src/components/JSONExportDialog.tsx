@@ -21,10 +21,9 @@ import {
   PopoverCloseButton,
 } from "@chakra-ui/react";
 
-import { useSbState } from "@switchboardcc/react-sdk-proto";
-
 import "./ExportDialog.scss";
 import { nativeFileSystemSupported } from "../data/filesystem";
+import { useDopt } from "@dopt/react";
 
 export type ExportCB = (
   elements: readonly NonDeletedExcalidrawElement[],
@@ -49,10 +48,10 @@ const JSONExportModal = ({
 }) => {
   const { onExportToBackend } = exportOpts;
 
-  const [state, setState] = useSbState("congratulations-db59ae1");
+  const [{ active }, { complete }] = useDopt("72IsJgtFODxZyf8lWTjFL");
   return (
     <div className="ExportDialog ExportDialog--json">
-      {state && !state.finished && (
+      {active && (
         <Alert
           colorScheme="purple"
           status="success"
@@ -114,12 +113,12 @@ const JSONExportModal = ({
 };
 
 const ExportButtonWrapper = (props: any) => {
-  const [state, setState] = useSbState("export-78e5a70");
-  if (!state || !state.active || state.finished) {
+  const [{ active }] = useDopt("JfEa5JehaffKM51MnRprg");
+  if (!active) {
     return props.children;
   }
   return (
-    <Popover isOpen={!state.finished}>
+    <Popover isOpen={active}>
       <PopoverTrigger>
         <div
           style={{
@@ -134,8 +133,11 @@ const ExportButtonWrapper = (props: any) => {
         <PopoverArrow />
         <PopoverBody>
           Looking good! Let’s export this drawing so you can share it with
-          others. <strong>Click the Save as image button to save this as a PNG, SVG, or
-          copy it to your clipboard.</strong>
+          others.{" "}
+          <strong>
+            Click the Save as image button to save this as a PNG, SVG, or copy
+            it to your clipboard.
+          </strong>
         </PopoverBody>
       </PopoverContent>
     </Popover>
@@ -159,21 +161,20 @@ export const JSONExportDialog = ({
 }) => {
   const [modalIsShown, setModalIsShown] = useState(false);
 
-  const [modalBannerState, setModalBannerState] = useSbState(
-    "congratulations-db59ae1",
-  );
+  const doptCongrats = useDopt("anfx1Duz-ahZ7dCRLYreh");
+
   const handleClose = React.useCallback(() => {
-    setModalBannerState({ ...modalBannerState, finished: true });
+    doptCongrats[1].complete();
     setModalIsShown(false);
-  }, [modalBannerState, setModalBannerState]);
-  const [state, setState] = useSbState("export-78e5a70");
+  }, [doptCongrats]);
+  const doptExport = useDopt("JfEa5JehaffKM51MnRprg");
 
   return (
     <ExportButtonWrapper>
       <ToolButton
         onClick={() => {
-          if (!state.finished) {
-            setState({ ...state, finished: true });
+          if (doptExport[0].active) {
+            doptExport[1].complete();
           }
           setModalIsShown(true);
         }}
